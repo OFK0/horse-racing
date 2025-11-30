@@ -1,53 +1,175 @@
-# .
+# Horse Race 🐎
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern Vue 3 horse racing game built with Vite, TypeScript, and Pinia for state management. Features interactive gameplay with real-time animations, internationalization support, and comprehensive test coverage.
 
-## Recommended IDE Setup
+## Features ✨
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 🎮 Interactive horse racing game with Vue 3
+- 🌍 Multi-language support (English & Turkish)
+- 💾 State management with Pinia
+- 🎨 Responsive UI with SCSS styling
+- 🧪 Comprehensive unit tests with Vitest
+- 🔍 End-to-end tests with Cypress
+- ⚡ Fast development with Vite HMR
+- 📱 Modern TypeScript support
 
-## Recommended Browser Setup
+## Requirements
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Node.js: `^20.19.0` or `>=22.12.0`
+- npm or yarn package manager
 
-## Type Support for `.vue` Imports in TS
+## Getting Started 🚀
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+### Installation
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development Server
+
+Start the development server with hot module reloading:
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+The application will be available at `http://localhost:5173`
+
+### Build for Production
+
+Create an optimized production build:
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+## Testing 🧪
+
+### Unit Tests
+
+Run unit tests with Vitest:
 
 ```sh
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+Run tests in watch mode for development:
+
+```sh
+npm run test:unit:dev
+```
+
+### End-to-End Tests
+
+Run E2E tests with Cypress:
+
+```sh
+npm run test:e2e
+```
+
+Open Cypress test runner in interactive mode:
+
+```sh
+npm run test:e2e:dev
+```
+
+## Code Quality 🔧
+
+### Type Checking
+
+Check TypeScript types:
+
+```sh
+npm run type-check
+```
+
+### Linting
+
+Run ESLint to fix code style issues:
+
+```sh
+npm run lint
+```
+
+### Formatting
+
+Format code with Prettier:
+
+```sh
+npm run format
+```
+
+## IDE Setup 💻
+
+### Recommended IDE
+
+[VS Code](https://code.visualstudio.com/) with the following extensions:
+
+- [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - Vue 3 language support (disable Vetur if installed)
+- [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - TypeScript support for Vue files
+
+### Browser Extensions
+
+**Chromium-based (Chrome, Edge, Brave, etc.):**
+
+- [Vue.js DevTools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+- Enable Custom Object Formatter in DevTools: `chrome://flags` or settings
+
+**Firefox:**
+
+- [Vue.js DevTools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- Enable Custom Object Formatter in about:debugging
+
+## Project Structure 📁
+
+```
+src/
+├── components/       # Reusable Vue components
+├── stores/          # Pinia state management
+├── i18n/            # Internationalization configuration
+└── __tests__/       # Unit test files
+```
+
+## Dependencies 📦
+
+- **Vue 3** - Progressive JavaScript framework
+- **Pinia** - State management
+- **Vue I18n** - Internationalization
+- **Lodash** - Utility library
+- **Vite** - Next-generation build tool
+- **TypeScript** - Type-safe JavaScript
+- **Vitest** - Unit testing framework
+- **Cypress** - E2E testing framework
+
+## Development Scripts 📝
+
+| Command                 | Purpose                  |
+| ----------------------- | ------------------------ |
+| `npm run dev`           | Start development server |
+| `npm run build`         | Build for production     |
+| `npm run preview`       | Preview production build |
+| `npm run test:unit`     | Run unit tests           |
+| `npm run test:unit:dev` | Run tests in watch mode  |
+| `npm run test:e2e`      | Run E2E tests            |
+| `npm run test:e2e:dev`  | Open Cypress test runner |
+| `npm run type-check`    | Check TypeScript types   |
+| `npm run lint`          | Fix linting issues       |
+| `npm run format`        | Format code              |
+
+## Configuration 🔧
+
+See [Vite Configuration Reference](https://vite.dev/config/) for advanced build configuration options.
+
+## License 📄
+
+This project is licensed under the MIT License.
 
 ```sh
 npm run test:e2e:dev
