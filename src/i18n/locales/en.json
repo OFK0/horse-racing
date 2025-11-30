@@ -1,0 +1,15 @@
+{
+  "common.position": "Position",
+  "common.name": "Name",
+  "common.time": "Time",
+  "common.condition": "Condition",
+  "common.color": "Color",
+  "common.lap": "Lap",
+  "common.live-results": "Live Results",
+  "common.program": "Program",
+  "header.generate-program-button": "Generate Program",
+  "header.start-stop-button": "Start/Stop",
+  "horse-list.title": "Horse List (1-20)",
+  "lap-tables.game-not-started-yet": "Game not started yet.",
+  "program-table.program-not-generated-yet": "Program not generated yet."
+}

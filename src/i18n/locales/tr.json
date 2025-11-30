@@ -1,0 +1,15 @@
+{
+  "common.position": "Pozisyon",
+  "common.name": "İsim",
+  "common.time": "Zaman",
+  "common.condition": "Kondisyon",
+  "common.color": "Renk",
+  "common.lap": "Tur",
+  "common.program": "Program",
+  "common.live-results": "Live Results",
+  "header.generate-program-button": "Program Oluştur",
+  "header.start-stop-button": "Başlat/Durdur",
+  "horse-list.title": "At Listesi (1-20)",
+  "lap-tables.game-not-started-yet": "Oyun henüz başlamadı.",
+  "program-table.program-not-generated-yet": "Program henüz oluşmadı."
+}
