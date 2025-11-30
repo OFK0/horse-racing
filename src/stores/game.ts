@@ -150,6 +150,7 @@ export const useGameStore = defineStore('game', () => {
             ...horse,
             time: 0,
             finished: false,
+            elapsed: 0,
           })) || [];
       }
     }, delta * 1000);
@@ -159,6 +160,8 @@ export const useGameStore = defineStore('game', () => {
     if (isGameStarted.value) return;
 
     resetHorses();
+    programTable.value = [];
+    lapTables.value = [];
     isGameStarted.value = false;
     currentRoundIndex.value = 0;
     elapsedSeconds.value = 0;
@@ -184,6 +187,7 @@ export const useGameStore = defineStore('game', () => {
     if (isGameStarted.value || !isProgramGenerated.value) return;
 
     isGameStarted.value = true;
+    isGameStopped.value = false;
     elapsedSeconds.value = 0;
 
     lapTables.value[currentRoundIndex.value] = [...inGameHorses.value];
