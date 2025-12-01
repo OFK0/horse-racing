@@ -25,7 +25,17 @@
         ]"
         :data="
           result
-            .sort((a: Horse, b: Horse) => a.name.localeCompare(b.name))
+            .sort((a: Horse, b: Horse) => {
+              if (a.time && b.time) {
+                return a.time - b.time;
+              }
+
+              if (a.time === b.time) {
+                return b.elapsed - a.elapsed;
+              }
+
+              return a.name.localeCompare(b.name);
+            })
             .map((horse: Horse, index: number) => ({
               position: String(index + 1),
               name: `<span class='color-bullet' style='background-color:${horse.color}'></span> ${horse.name}`,

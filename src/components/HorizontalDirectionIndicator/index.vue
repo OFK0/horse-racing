@@ -42,8 +42,6 @@ const displayOrientation = () => {
     screenOrientation === 'portrait-secondary' ||
     screenOrientation === 'portrait-primary' ||
     screenOrientation === undefined;
-
-  console.log(screenOrientation);
 };
 
 onBeforeMount(() => {

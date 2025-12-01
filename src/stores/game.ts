@@ -141,6 +141,17 @@ export const useGameStore = defineStore('game', () => {
         clearInterval(intervalId.value!);
         intervalId.value = null;
         isGameStarted.value = false;
+
+        programTable.value[currentRoundIndex.value]?.forEach((horse) => {
+          const inGameEntry = inGameHorses.value.find((h) => h.id === horse.id);
+
+          if (inGameEntry) {
+            horse.elapsed = inGameEntry.elapsed;
+            horse.speed = inGameEntry.speed;
+            horse.time = inGameEntry.time;
+          }
+        });
+
         if (currentRoundIndex.value + 1 >= MAX_ROUNDS) {
           return;
         }
