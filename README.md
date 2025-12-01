@@ -134,6 +134,10 @@ src/
 ├── components/       # Reusable Vue components
 ├── stores/          # Pinia state management
 ├── i18n/            # Internationalization configuration
+├── styles/          # Global SCSS styles
+│   ├── _variables.scss  # SCSS variables for colors, spacing, typography
+│   ├── _mixins.scss     # Reusable SCSS mixins for common patterns
+│   └── index.scss       # Main stylesheet
 └── __tests__/       # Unit test files
 ```
 
@@ -167,26 +171,19 @@ src/
 
 See [Vite Configuration Reference](https://vite.dev/config/) for advanced build configuration options.
 
+## Deployment 🚢
+
+### Docker Deployment
+
+The project includes a Dockerfile for containerized deployment:
+
+```sh
+docker build -t horse-race .
+docker run -p 80:80 horse-race
+```
+
+The application is served with Nginx on port 80.
+
 ## License 📄
 
 This project is licensed under the MIT License.
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
