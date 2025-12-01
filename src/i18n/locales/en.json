@@ -11,5 +11,6 @@
   "header.start-stop-button": "Start/Stop",
   "horse-list.title": "Horse List (1-20)",
   "lap-tables.game-not-started-yet": "Game not started yet.",
-  "program-table.program-not-generated-yet": "Program not generated yet."
+  "program-table.program-not-generated-yet": "Program not generated yet.",
+  "horizontal-direction-indicator.message": "You need to turn your device to landscape orientation."
 }

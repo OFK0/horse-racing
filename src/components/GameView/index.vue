@@ -11,31 +11,66 @@
     <div class="current-lap-indicator">
       {{ $t('common.lap') }}: {{ gameStore.currentRoundIndex + 1 }}
     </div>
-    <div class="horse-list-outer">
-      <HorseList />
+    <div
+      :class="{
+        'horse-list-outer': true,
+        'horse-list-outer--show-mobile': showHorseListMobile,
+      }"
+    >
+      <div class="horse-list-outer__inner">
+        <div class="horse-list-outer__inner__toggle-button-outer">
+          <BaseButton
+            variant="secondary"
+            :active="showHorseListMobile"
+            @click="showHorseListMobile = !showHorseListMobile"
+            >{{ $t('horse-list.title') }}</BaseButton
+          >
+        </div>
+        <HorseList />
+      </div>
     </div>
-    <div class="program-side-outer">
-      <BaseButton
-        block
-        class="program-side-outer__button"
-        variant="primary"
-        :active="showingTable === 'program'"
-        @click="showingTable = 'program'"
-        >{{ $t('common.program') }}</BaseButton
-      >
+    <div
+      :class="{
+        'program-side-outer': true,
+        'program-side-outer--show-mobile': showProgramTableMobile,
+      }"
+    >
+      <div class="program-side-outer__inner">
+        <div class="program-side-outer__inner__toggle-button-outer">
+          <BaseButton
+            variant="secondary"
+            :active="showProgramTableMobile"
+            @click="showProgramTableMobile = !showProgramTableMobile"
+            >{{ $t('common.program') }}</BaseButton
+          >
+        </div>
 
-      <ProgramTable v-show="showingTable === 'program'" />
+        <BaseButton
+          block
+          class="program-side-outer__button"
+          variant="primary"
+          :active="showingTable === 'program'"
+          @click="
+            showingTable = showingTable === 'program' ? 'results' : 'program'
+          "
+          >{{ $t('common.program') }}</BaseButton
+        >
 
-      <BaseButton
-        block
-        class="program-side-outer__button"
-        variant="primary"
-        :active="showingTable === 'results'"
-        @click="showingTable = 'results'"
-        >{{ $t('common.live-results') }}</BaseButton
-      >
+        <ProgramTable v-show="showingTable === 'program'" />
 
-      <ProgramResults v-show="showingTable === 'results'" />
+        <BaseButton
+          block
+          class="program-side-outer__button"
+          variant="primary"
+          :active="showingTable === 'results'"
+          @click="
+            showingTable = showingTable === 'results' ? 'program' : 'results'
+          "
+          >{{ $t('common.live-results') }}</BaseButton
+        >
+
+        <ProgramResults v-show="showingTable === 'results'" />
+      </div>
     </div>
   </div>
 </template>
@@ -55,6 +90,8 @@ defineOptions({
 });
 
 const showingTable = ref<'program' | 'results'>('program');
+const showHorseListMobile = ref<boolean>(false);
+const showProgramTableMobile = ref<boolean>(false);
 
 const gameStore = useGameStore();
 
@@ -73,28 +110,98 @@ const getLanesOrHorses = computed(() => {
 .game-view {
   position: relative;
   z-index: 99;
-  width: 800px;
+  width: 90vw;
   height: 100%;
   margin: 0 auto;
-  padding-top: 80px;
-  padding-left: 24px;
+  padding: 40px 10px 40px 10px;
+
+  @include xxl {
+    width: 800px;
+    padding-top: 80px;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
 }
 
 .horse-list-outer {
-  position: absolute;
-  top: 80px;
-  left: -320px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease;
+
+  @include xxl {
+    position: absolute;
+    top: 80px;
+    left: -320px;
+    transform: translateX(0);
+  }
+
+  &--show-mobile {
+    transform: translateX(0);
+  }
+
+  &__inner {
+    position: relative;
+    height: 100%;
+
+    &__toggle-button-outer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(62%) translateY(180px) rotate(-90deg);
+
+      @include xxl {
+        display: none;
+      }
+    }
+  }
 }
 
 .program-side-outer {
-  position: absolute;
-  top: 80px;
-  right: -340px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  background-color: $brown;
+  padding: 8px;
+  height: 100vh;
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+
+  @include xxl {
+    position: absolute;
+    top: 80px;
+    right: -340px;
+    background-color: transparent;
+    padding: 0;
+    transform: translateX(0);
+  }
+
+  &--show-mobile {
+    transform: translateX(0);
+  }
+
+  &__inner {
+    position: relative;
+    height: 100%;
+
+    &__toggle-button-outer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-75%) translateY(120px) rotate(-90deg);
+
+      @include xxl {
+        display: none;
+      }
+    }
+  }
 
   &__button {
     margin: 20px 0;
 
-    &:first-child {
+    &:nth-child(2) {
       margin-top: 0;
     }
   }

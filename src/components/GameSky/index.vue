@@ -18,7 +18,7 @@ defineOptions({
 <style scoped lang="scss">
 .sky-tile-background {
   position: relative;
-  height: 240px;
+  height: 80px;
   width: 100%;
   background-color: #87ceeb;
   background-image: url('/images/sky.webp');
@@ -26,6 +26,10 @@ defineOptions({
   background-repeat: repeat;
   image-rendering: pixelated;
   flex-shrink: 0;
+
+  @include xxl {
+    height: 240px;
+  }
 
   &__bottom-gradient {
     position: absolute;

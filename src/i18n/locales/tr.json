@@ -11,5 +11,6 @@
   "header.start-stop-button": "Başlat/Durdur",
   "horse-list.title": "At Listesi (1-20)",
   "lap-tables.game-not-started-yet": "Oyun henüz başlamadı.",
-  "program-table.program-not-generated-yet": "Program henüz oluşmadı."
+  "program-table.program-not-generated-yet": "Program henüz oluşmadı.",
+  "horizontal-direction-indicator.message": "Cihazınızı yatay yöne getirmeniz gerekmektedir."
 }

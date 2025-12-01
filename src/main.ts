@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import './style.scss';
+import './styles/index.scss';
 import App from './App.vue';
 import { createI18n } from 'vue-i18n';
 import i18nConfig from '@/i18n/config';

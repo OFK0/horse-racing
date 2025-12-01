@@ -1,0 +1,48 @@
+@use 'sass:color';
+@use './variables' as *;
+
+:root {
+  --base-font-family: 'Jersey 25', sans-serif;
+  --color-primary: #{$primary};
+  --color-primary-light: #{color.adjust($primary, $lightness: 20%)};
+  --color-primary-dark: #{color.adjust($primary, $lightness: -20%)};
+  --color-secondary: #{$secondary};
+  --color-secondary-light: #{color.adjust($secondary, $lightness: 20%)};
+  --color-secondary-dark: #{color.adjust($secondary, $lightness: -20%)};
+  --color-light: #{$light};
+  --color-light-light: #{color.adjust($light, $lightness: 20%)};
+  --color-light-dark: #{color.adjust($light, $lightness: -20%)};
+  --color-green: #{$green};
+  --color-gold: #{$gold};
+  --color-gold-light: #{color.adjust($gold, $lightness: 20%)};
+  --color-gold-dark: #{color.adjust($gold, $lightness: -20%)};
+  --color-brown: #{$brown};
+  --color-brown-light: #{color.adjust($brown, $lightness: 20%)};
+  --color-brown-dark: #{color.adjust($brown, $lightness: -20%)};
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Jersey 25', sans-serif;
+  font-size: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.color-bullet {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid black;
+  border-radius: 100%;
+}
