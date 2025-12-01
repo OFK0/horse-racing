@@ -1,5 +1,5 @@
 <template>
-  <div class="program-results" ref="programResults">
+  <div class="program-results" ref="outerDivRef">
     <div
       v-if="gameStore.lapTables.length === 0"
       class="program-results__message"
@@ -23,7 +23,10 @@
         ]"
         :data="
           result
-            .sort((a: Horse, b: Horse) => a.time - b.time)
+            .sort((a: Horse, b: Horse) => {
+              if (a.time === b.time) return b.elapsed - a.elapsed;
+              return a.time - b.time;
+            })
             .map((horse: Horse, index: number) => ({
               position: String(index + 1),
               name: `<span class='color-bullet' style='background-color:${horse.color}'></span> ${horse.name}`,
@@ -49,10 +52,11 @@ const gameStore = useGameStore();
 const outerDivRef = ref<HTMLDivElement | null>(null);
 
 watch(
-  () => gameStore.currentRoundIndex,
+  () => gameStore.lapTables,
   () => {
     outerDivRef.value?.scrollTo(0, outerDivRef.value.scrollHeight);
   },
+  { deep: true },
 );
 </script>
 

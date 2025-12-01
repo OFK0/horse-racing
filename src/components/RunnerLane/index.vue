@@ -24,6 +24,9 @@ const props = defineProps<{
 <style scoped lang="scss">
 .runner-lane {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   height: 80px;
   border-bottom: 4px solid white;
   border-left: 4px solid white;
@@ -35,18 +38,17 @@ const props = defineProps<{
 
   &__inner {
     position: relative;
-    width: 100%;
+    width: calc(100% - 40px);
     height: 72px;
+    flex-shrink: 0;
     transform: translateY(-40px);
   }
 
   &__num {
-    position: absolute;
-    left: 0;
     background-color: white;
-    top: 0;
     height: 100%;
     width: 32px;
+    flex-shrink: 0;
     color: white;
     text-shadow:
       2px 2px 0px black,

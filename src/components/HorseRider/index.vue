@@ -28,7 +28,7 @@ const gameStore = useGameStore();
 
 const calculatedXinPx = computed(() => {
   if (!gameStore.isGameStarted) {
-    return 40;
+    return 0;
   }
 
   const runnerLaneWidth =
@@ -36,7 +36,7 @@ const calculatedXinPx = computed(() => {
 
   const currentRoundLength = gameStore.getCurrentRoundLength();
 
-  return ((props.elapsed + 40) * (runnerLaneWidth - 40)) / currentRoundLength;
+  return (props.elapsed * (runnerLaneWidth - 50)) / currentRoundLength;
 });
 </script>
 
